@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const AgregarLibro = ()=> {
+const AgregarLibro = () => {
     const [titulolibro, setTituloLibro]=useState('');
     const [autor, setAutor]=useState('');
     const [precio, setPrecio]=useState('');
@@ -15,7 +15,7 @@ const AgregarLibro = ()=> {
             autor: autor,
             precio: precio
         };
-        axios.post('http://127.0.0.1:8000/api/libros', nuevoLibro)
+        axios.post(`http://127.0.0.1:8000/api/libros`, nuevoLibro)
         .then(response =>{
             console.log(response.data);
             navigate('/');
@@ -67,6 +67,8 @@ const AgregarLibro = ()=> {
                     />
                 </div>
                 <button type='submit' className='btn btn-primary'>Agregar Libro</button>
+             
+
             </form>
         </div>
     );

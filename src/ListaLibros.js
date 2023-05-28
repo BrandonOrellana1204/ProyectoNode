@@ -6,7 +6,7 @@ const ListaLibros = () => {
     const [libros, setLibros] = useState([]);
 
     useEffect(()=> {
-        axios.get('http://127.0.0.1:8000/api/libros')
+        axios.get(`http://127.0.0.1:8000/api/libros`)
         .then(response => {
             setLibros(response.data);
         })
@@ -15,7 +15,7 @@ const ListaLibros = () => {
         });
     }, []);
 const handleEliminarLibro =(id)=>{
-    axios.delete('http://127.0.0.1:8000/api/libros/${id}')
+    axios.delete(`http://127.0.0.1:8000/api/libros/${id}`)
     .then(response=>{
         setLibros(libros.filter(libro => libro.id !== id));
     })
